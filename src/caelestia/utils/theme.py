@@ -28,10 +28,17 @@ def gen_scss(colours: dict[str, str]) -> str:
     return scss
 
 
-def gen_replace(colours: dict[str, str], template: Path, hash: bool = False) -> str:
+def hex_to_rgb(hex_string):
+    r_hex = hex_string[0:2]
+    g_hex = hex_string[2:4]
+    b_hex = hex_string[4:6]
+    return f"{int(r_hex, 16)}, {int(g_hex, 16)}, {int(b_hex, 16)}"
+
+
+def gen_replace(colours: dict[str, str], template: Path, hash: bool = False, inner_rgb: bool = False) -> str:
     template = template.read_text()
     for name, colour in colours.items():
-        template = template.replace(f"{{{{ ${name} }}}}", f"#{colour}" if hash else colour)
+        template = template.replace(f"{{{{ ${name} }}}}", f"#{colour}") if hash else template.replace(f"{{{{ ${name} }}}}", f"{hex_to_rgb(colour)}") if inner_rgb else colour
     return template
 
 
@@ -171,6 +178,12 @@ def apply_qt(colours: dict[str, str], mode: str) -> None:
         write_file(config_dir / f"qt{ver}ct/qt{ver}ct.conf", conf)
 
 
+def apply_steam(colours: dict[str, str]) -> None:
+    template = gen_replace(colours, templates_dir / "steam.css", inner_rgb=True)
+    write_file(config_dir / "AdwSteamGtk/custom.css", template)
+    subprocess.run(["adwaita-steam-gtk", "-i"])
+
+
 def apply_user_templates(colours: dict[str, str]) -> None:
     if not user_templates_dir.is_dir():
         return
@@ -206,4 +219,6 @@ def apply_colours(colours: dict[str, str], mode: str) -> None:
         apply_gtk(colours, mode)
     if check("enableQt"):
         apply_qt(colours, mode)
+    if check("enableSteam"):
+        apply_steam(colours)
     apply_user_templates(colours)

@@ -104,7 +104,8 @@ All configuration options are in `~/.config/caelestia/cli.json`.
         "enableFuzzel": true,
         "enableBtop": true,
         "enableGtk": true,
-        "enableQt": true
+        "enableQt": true,
+        "enableSteam": true
     },
     "toggles": {
         "communication": {

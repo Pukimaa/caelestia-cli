@@ -1,0 +1,95 @@
+:root {
+	/* The main accent color and the matching text value */
+	--adw-accent-bg-rgb: {{ $primary }};
+	--adw-accent-fg-rgb: {{ $onPrimary }};
+	--adw-accent-rgb: {{ $primary }};
+
+	/* destructive-action buttons */
+	--adw-destructive-bg-rgb: {{ $error }};
+	--adw-destructive-fg-rgb: 255, 255, 255;
+	--adw-destructive-rgb: {{ $error }};
+
+	/* Levelbars, entries, labels and infobars. These don't need text colors */
+	--adw-success-bg-rgb: {{ $green }};
+	--adw-success-fg-rgb: 255, 255, 255;
+	--adw-success-rgb: {{ $green }};
+
+	--adw-warning-bg-rgb: {{ $yellow }};
+	--adw-warning-fg-rgb: 0, 0, 0;
+	--adw-warning-fg-a: 0.8;
+	--adw-warning-rgb: {{ $yellow }};
+
+	--adw-error-bg-rgb: {{ $error }};
+	--adw-error-fg-rgb: 255, 255, 255;
+	--adw-error-rgb: {{ $error }};
+
+	/* Window */
+	--adw-window-bg-rgb: {{ $surfaceContainer }};
+	--adw-window-fg-rgb: {{ $onSurface }};
+
+	/* Views - e.g. text view or tree view */
+	--adw-view-bg-rgb: {{ $surfaceContainer }};
+	--adw-view-fg-rgb: {{ $onSurface }};
+
+	/* Header bar, search bar, tab bar */
+	--adw-headerbar-bg-rgb: {{ $surfaceContainerHigh }};
+	--adw-headerbar-fg-rgb: {{ $onSurface }};
+	--adw-headerbar-border-rgb: {{ $outline }};
+	--adw-headerbar-backdrop-rgb: var(--adw-window-bg-rgb);
+	--adw-headerbar-shade-rgb: {{ $outline }};
+	--adw-headerbar-shade-a: 0.36;
+	--adw-headerbar-darker-shade-rgb: {{ $outline }};
+	--adw-headerbar-darker-shade-a: 0.9;
+
+	/* Split pane views */
+	--adw-sidebar-bg-rgb: var(--adw-window-bg-rgb);
+	--adw-sidebar-fg-rgb: var(--adw-window-fg-rgb);
+	--adw-sidebar-backdrop-rgb: var(--adw-window-bg-rgb);
+	--adw-sidebar-shade-rgb: {{ $outline }};
+	--adw-sidebar-shade-a: 0.25;
+
+	--adw-secondary-sidebar-bg-rgb: {{ $surface }};
+	--adw-secondary-sidebar-fg-rgb: {{ $onSurface }};
+	--adw-secondary-sidebar-backdrop-rgb: {{ $surfaceContainerHigh }};
+	--adw-secondary-sidebar-shade-rgb: {{ $outline }};
+	--adw-secondary-sidebar-shade-a: 0.25;
+
+	/* Cards, boxed lists */
+	--adw-card-bg-rgb: {{ $surfaceContainerHigh }};
+	--adw-card-bg-a: 0.08;
+	--adw-card-fg-rgb: {{ $onSurface }};
+	--adw-card-shade-rgb: {{ $outline }};
+	--adw-card-shade-a: 0.36;
+	--adw-card-opacity: .8;
+    --adw-card-hover-opacity: 0.9;
+    --adw-card-active-opacity: 1;
+
+	/* Dialogs */
+	--adw-dialog-bg-rgb: {{ $surfaceContainerHighest }};
+	--adw-dialog-fg-rgb: {{ $onSurface }};
+
+	/* Popovers */
+	--adw-popover-bg-rgb: {{ $surfaceContainerHighest }} ;
+	--adw-popover-fg-rgb: {{ $onSurface }};
+	--adw-popover-shade-rgb: {{ $outline }};
+	--adw-popover-shade-a: 0.25;
+
+	/* Banners */
+	--adw-banner-bg-rgb: {{ $surfaceContainerHigh }};
+	--adw-banner-bg-a: 0.3;
+	--adw-banner-fg-rgb: {{ $onSurface }};
+
+	/* Thumbnails */
+	--adw-thumbnail-bg-rgb: {{ $surfaceContainerHigh }};
+	--adw-thumbnail-fg-rgb: {{ $onSurface }};
+
+	/* Miscellaneous */
+	--adw-shade-rgb: {{ $outline }};
+	--adw-shade-a: 0.25;
+
+	/* Skin-specific */
+	--adw-user-offline-rgb: 128, 128, 128;
+	--adw-user-online-rgb: 120, 174, 237;
+	--adw-user-ingame-rgb: 143, 240, 164;
+}
+
