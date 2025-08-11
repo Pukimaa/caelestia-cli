@@ -38,7 +38,8 @@ def hex_to_rgb(hex_string):
 def gen_replace(colours: dict[str, str], template: Path, hash: bool = False, inner_rgb: bool = False) -> str:
     template = template.read_text()
     for name, colour in colours.items():
-        template = template.replace(f"{{{{ ${name} }}}}", f"#{colour}") if hash else template.replace(f"{{{{ ${name} }}}}", f"{hex_to_rgb(colour)}") if inner_rgb else colour
+        replaceWith = f"#{colour}" if hash else f"{hex_to_rgb(colour)}" if inner_rgb else colour
+        template = template.replace(f"{{{{ ${name} }}}}", replaceWith)
     return template
 
 
