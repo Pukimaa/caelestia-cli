@@ -185,6 +185,16 @@ def apply_steam(colours: dict[str, str]) -> None:
     subprocess.run(["adwaita-steam-gtk", "-i"])
 
 
+def apply_cider(scss: str) -> None:
+    import tempfile
+
+    with tempfile.TemporaryDirectory("w") as tmp_dir:
+        (Path(tmp_dir) / "_colours.scss").write_text(scss)
+        conf = subprocess.check_output(["sass", "-I", tmp_dir, templates_dir / "cider.scss"], text=True)
+
+    write_file(config_dir / "sh.cider.genten/themes/caelestia/main.css", conf)
+
+
 def apply_user_templates(colours: dict[str, str]) -> None:
     if not user_templates_dir.is_dir():
         return
@@ -222,4 +232,6 @@ def apply_colours(colours: dict[str, str], mode: str) -> None:
         apply_qt(colours, mode)
     if check("enableSteam"):
         apply_steam(colours)
+    if check("enableCider"):
+        apply_cider(gen_scss(colours))
     apply_user_templates(colours)

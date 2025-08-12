@@ -105,7 +105,8 @@ All configuration options are in `~/.config/caelestia/cli.json`.
         "enableBtop": true,
         "enableGtk": true,
         "enableQt": true,
-        "enableSteam": true
+        "enableSteam": true,
+        "enableCider": true
     },
     "toggles": {
         "communication": {
