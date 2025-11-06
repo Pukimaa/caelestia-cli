@@ -130,6 +130,12 @@ All configuration options are in `~/.config/caelestia/cli.json`.
 
 ```json
 {
+    "record": {
+        "extraArgs": []
+    },
+    "wallpaper": {
+        "postHook": "echo $WALLPAPER_PATH"  
+    },
     "theme": {
         "enableTerm": true,
         "enableHypr": true,
